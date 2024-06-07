@@ -1,0 +1,23 @@
+apiVersions: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-depl
+  labels:
+    app: my-app
+spec:
+  replicas: 3
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: 637423400074.dkr.ecr.ap-southeast-1.amazonaws.com/lab-practice:2024-06-07-15-59
+          ports:
+            - containerPort: 8080
