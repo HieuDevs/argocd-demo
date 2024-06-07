@@ -16,8 +16,11 @@ spec:
       labels:
         app: my-app
     spec:
+      imagePullSecrets:
+        - name: my-registry-secret
       containers:
         - name: my-app
           image: 637423400074.dkr.ecr.ap-southeast-1.amazonaws.com/lab-practice:2024-06-07-15-59
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
