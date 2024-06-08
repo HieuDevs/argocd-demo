@@ -1,11 +1,11 @@
-apiVersions: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app-depl
   labels:
     app: my-app
 spec:
-  replicas: 3
+  replicas: 1
   progressDeadlineSeconds: 600
   revisionHistoryLimit: 10
   selector:
@@ -17,10 +17,10 @@ spec:
         app: my-app
     spec:
       imagePullSecrets:
-        - name: my-registry-secret
+        - name: my-registry
       containers:
         - name: my-app
-          image: 637423400074.dkr.ecr.ap-southeast-1.amazonaws.com/lab-practice:2024-06-07-15-59
+          image: hieubui/test:main
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
