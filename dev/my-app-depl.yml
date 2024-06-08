@@ -16,8 +16,6 @@ spec:
       labels:
         app: my-app
     spec:
-      imagePullSecrets:
-        - name: my-registry
       containers:
         - name: my-app
           image: hieubui/test:main
